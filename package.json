@@ -1,0 +1,37 @@
+{
+	"name": "tron-link4",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@emotion/react": "^11.10.4",
+		"@emotion/styled": "^11.10.4",
+		"@mui/material": "^5.10.10",
+		"@tronweb3/tronwallet-abstract-adapter": "^1.1.0",
+		"@tronweb3/tronwallet-adapter-bitkeep": "^1.0.0",
+		"@tronweb3/tronwallet-adapter-ledger": "^1.1.1",
+		"@tronweb3/tronwallet-adapter-react-hooks": "^1.1.7",
+		"@tronweb3/tronwallet-adapter-react-ui": "^1.1.0",
+		"@tronweb3/tronwallet-adapter-tokenpocket": "^1.0.0",
+		"@tronweb3/tronwallet-adapters": "^1.2.0",
+		"next": "14.1.0",
+		"react": "^18",
+		"react-dom": "^18",
+		"react-hot-toast": "^2.4.0",
+		"tronweb": "^4.4.0"
+	},
+	"devDependencies": {
+		"@types/node": "^20",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"autoprefixer": "^10.0.1",
+		"postcss": "^8",
+		"tailwindcss": "^3.3.0",
+		"typescript": "^5"
+	}
+}
