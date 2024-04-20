@@ -27,7 +27,7 @@ const rows = [
 	{ name: 'Connect Button', reactUI: WalletConnectButton },
 	{ name: 'Disconnect Button', reactUI: WalletDisconnectButton },
 	{ name: 'Select Wallet Button', reactUI: WalletSelectButton },
-	{ name: 'Multi Action Button', reactUI: WalletActionButton },
+	// { name: 'Multi Action Button', reactUI: WalletActionButton },
 ];
 export default function TronLink4() {
 	return (
@@ -43,7 +43,7 @@ function UIComponent() {
 	return (
 		<div>
 			<h2>UI Component</h2>
-			<TableContainer style={{ overflow: 'visible' }} component='div'>
+			<TableContainer style={{ overflow: 'hidden' }} component='div'>
 				<Table sx={{}} aria-label='simple table'>
 					<TableHead>
 						<TableRow>
@@ -97,6 +97,7 @@ function SignDemo() {
 	const [signedMessage, setSignedMessage] = useState('');
 	const receiver = 'TVW5WnDDSBiJ3kuLD2PZdUczgWovmjTBrS';
 	const [open, setOpen] = useState(false);
+	const [amount, setAmount] = useState(5);
 
 	async function onSignMessage() {
 		const res = await signMessage(message);
@@ -106,7 +107,7 @@ function SignDemo() {
 	async function onSignTransaction() {
 		const transaction = await tronWeb.transactionBuilder.sendTrx(
 			receiver,
-			tronWeb.toSun(100),
+			tronWeb.toSun(amount),
 			address
 		);
 		console.log(transaction);
@@ -114,6 +115,7 @@ function SignDemo() {
 		const signedTransaction = await signTransaction(transaction);
 		// const signedTransaction = await tronWeb.trx.sign(transaction);
 		const res = await tronWeb.trx.sendRawTransaction(signedTransaction);
+		console.log(res);
 		setOpen(true);
 	}
 	return (
@@ -129,15 +131,7 @@ function SignDemo() {
 			>
 				You can sign a message by click the button.
 			</p>
-			<Button style={{ marginRight: '20px' }} onClick={onSignMessage}>
-				SignMessage
-			</Button>
-			<TextField
-				size='small'
-				onChange={(e) => setMessage(e.target.value)}
-				placeholder='input message to signed'
-			></TextField>
-			<p>Your sigedMessage is: {signedMessage}</p>
+
 			<h2>Sign a Transaction</h2>
 			<p
 				style={{

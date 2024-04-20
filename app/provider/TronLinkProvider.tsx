@@ -1,5 +1,6 @@
 'use client';
 import type { WalletError } from '@tronweb3/tronwallet-abstract-adapter';
+
 import {
 	WalletDisconnectedError,
 	WalletNotFoundError,
@@ -33,7 +34,7 @@ const TronLinkProvider = ({ children }: { children: React.ReactNode }) => {
 			accountNumber: 2,
 		});
 		const walletConnectAdapter = new WalletConnectAdapter({
-			network: 'Nile',
+			network: 'Mainnet',
 			options: {
 				relayUrl: 'wss://relay.walletconnect.com',
 				// example WC app project ID
@@ -46,7 +47,7 @@ const TronLinkProvider = ({ children }: { children: React.ReactNode }) => {
 				},
 			},
 			web3ModalConfig: {
-				themeMode: 'dark',
+				themeMode: 'light',
 				themeVariables: {
 					'--w3m-z-index': '1000',
 				},
